@@ -1,12 +1,12 @@
 // src/pages/sar/YearSAR.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  ArrowLeft, 
-  Calendar, 
-  BarChart3, 
-  TrendingUp, 
-  Droplets, 
+import {
+  ArrowLeft,
+  Calendar,
+  BarChart3,
+  TrendingUp,
+  Droplets,
   Thermometer,
   Sprout,
   MapPin
@@ -14,10 +14,9 @@ import {
 import { yearMetadata, generateYearsData } from "../../data/yearData";
 import { useState, useEffect } from "react";
 
-// Генерация детальных данных для конкретного года
 const generateDetailedData = (year) => {
   const baseData = generateYearsData()[year];
-  
+
   return {
     ...baseData,
     // Дополнительные детальные данные
@@ -49,7 +48,6 @@ export default function YearSAR() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Имитация загрузки данных
     setTimeout(() => {
       const detailedData = generateDetailedData(parseInt(year));
       setData(detailedData);
@@ -77,7 +75,7 @@ export default function YearSAR() {
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-red-600 mb-4">Данные не найдены</h1>
-          <button 
+          <button
             onClick={() => navigate('/sar')}
             className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >
@@ -136,13 +134,13 @@ export default function YearSAR() {
                 <MapPin className="w-6 h-6 text-red-600" />
                 <h2 className="text-2xl font-bold text-gray-800">{year} год</h2>
               </div>
-              
-              <img 
-                src={metadata.image} 
+
+              <img
+                src={metadata.image}
                 alt={`${year} год`}
                 className="w-full h-48 object-cover rounded-xl mb-4"
               />
-              
+
               <p className="text-gray-600 leading-relaxed mb-4">
                 {metadata.description}
               </p>
@@ -170,15 +168,15 @@ export default function YearSAR() {
                 <BarChart3 className="w-5 h-5 text-blue-600" />
                 SAR Показатели
               </h3>
-              
+
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Интенсивность сигнала</span>
                   <span className="font-bold">{data.sarПоказатели.интенсивность}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-blue-600 h-2 rounded-full" 
+                  <div
+                    className="bg-blue-600 h-2 rounded-full"
                     style={{ width: `${data.sarПоказатели.интенсивность}%` }}
                   ></div>
                 </div>
@@ -188,8 +186,8 @@ export default function YearSAR() {
                   <span className="font-bold">{data.sarПоказатели.когерентность}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-green-600 h-2 rounded-full" 
+                  <div
+                    className="bg-green-600 h-2 rounded-full"
                     style={{ width: `${data.sarПоказатели.когерентность * 100}%` }}
                   ></div>
                 </div>
@@ -199,8 +197,8 @@ export default function YearSAR() {
                   <span className="font-bold">{data.sarПоказатели.деформация}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-purple-600 h-2 rounded-full" 
+                  <div
+                    className="bg-purple-600 h-2 rounded-full"
                     style={{ width: `${data.sarПоказатели.деформация * 10}%` }}
                   ></div>
                 </div>
@@ -221,7 +219,7 @@ export default function YearSAR() {
                 <Thermometer className="w-5 h-5 text-orange-600" />
                 Погодные условия
               </h3>
-              
+
               <div className="grid grid-cols-2 gap-6 mb-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-orange-600">{data.температура}°C</div>
@@ -239,7 +237,7 @@ export default function YearSAR() {
                   <div key={index} className="text-center">
                     <div className="text-xs text-gray-600 mb-1">{monthData.месяц}</div>
                     <div className="bg-orange-100 rounded h-16 relative">
-                      <div 
+                      <div
                         className="absolute bottom-0 left-0 right-0 bg-orange-500 rounded"
                         style={{ height: `${(monthData.температура + 10) * 2}%` }}
                       ></div>
@@ -261,7 +259,7 @@ export default function YearSAR() {
                 <Sprout className="w-5 h-5 text-green-600" />
                 Качество плодов
               </h3>
-              
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">{data.качествоПлодов.размер} мм</div>
@@ -293,7 +291,7 @@ export default function YearSAR() {
                 <TrendingUp className="w-5 h-5 text-purple-600" />
                 Рост и развитие
               </h3>
-              
+
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold text-gray-700 mb-3">Рост побегов по месяцам</h4>
@@ -303,8 +301,8 @@ export default function YearSAR() {
                         <span className="text-sm text-gray-600">{monthData.месяц}</span>
                         <div className="flex items-center gap-2">
                           <div className="w-20 bg-gray-200 rounded-full h-2">
-                            <div 
-                              className="bg-purple-600 h-2 rounded-full" 
+                            <div
+                              className="bg-purple-600 h-2 rounded-full"
                               style={{ width: `${monthData.ростПобегов}%` }}
                             ></div>
                           </div>
@@ -314,7 +312,7 @@ export default function YearSAR() {
                     ))}
                   </div>
                 </div>
-                
+
                 <div>
                   <h4 className="font-semibold text-gray-700 mb-3">Влажность почвы</h4>
                   <div className="space-y-2">
@@ -323,8 +321,8 @@ export default function YearSAR() {
                         <span className="text-sm text-gray-600">{monthData.месяц}</span>
                         <div className="flex items-center gap-2">
                           <div className="w-20 bg-gray-200 rounded-full h-2">
-                            <div 
-                              className="bg-blue-600 h-2 rounded-full" 
+                            <div
+                              className="bg-blue-600 h-2 rounded-full"
                               style={{ width: `${monthData.влажность}%` }}
                             ></div>
                           </div>

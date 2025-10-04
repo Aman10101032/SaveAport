@@ -4,7 +4,7 @@ import { Calendar, TrendingUp, BarChart3 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { yearMetadata, generateYearsData } from "../data/yearData";
 
-// Генерация данных
+
 const yearsData = generateYearsData();
 
 export default function SAR() {

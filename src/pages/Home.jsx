@@ -3,6 +3,14 @@ import { motion } from "framer-motion";
 import AnimatedCard from "../components/AnimatedCard";
 import { ArrowRight, BarChart3, History, Lightbulb, Users, Target, Award, Play, Heart, Shield, Leaf } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import innovationImg from "../img/innovation.jpg";
+import historyImg from "../img/history.jpg";
+import analyticsImg from "../img/analytics.jpg";
+import applgardenImg from "../img/applgarden.jpg";
+import farmerappleImg from "../img/farmerapple.jpg";
+import freshappleImg from "../img/freshapple.jpg";
+import qualityappleImg from "../img/qualityapple.jpeg";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,39 +21,39 @@ const Home = () => {
       title: "Богатая история",
       description: "Узнайте о centuries-old наследии сорта Апорт",
       path: "/history",
-      image: "https://images.unsplash.com/photo-1619546952812-5202a5f4a7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+      image: historyImg
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
       title: "Аналитика данных",
       description: "Изучите статистику и тенденции производства",
-      path: "/charts",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+      path: "/SAR",
+      image: analyticsImg
     },
     {
       icon: <Lightbulb className="w-8 h-8" />,
       title: "Инновации",
       description: "Современные решения для сохранения сорта",
       path: "/solution",
-      image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+      image: innovationImg
     }
   ];
 
   const gallery = [
     {
-      url: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      url: freshappleImg,
       title: "Свежий урожай"
     },
     {
-      url: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      url: applgardenImg,
       title: "Яблоневый сад"
     },
     {
-      url: "https://images.unsplash.com/photo-1590502593740-6f2f9ac2a75a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      url: farmerappleImg,
       title: "Традиции выращивания"
     },
     {
-      url: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      url: qualityappleImg,
       title: "Качество Апорта"
     }
   ];
@@ -113,11 +121,11 @@ const Home = () => {
                 }}
                 animate={{
                   x: [
-                    Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), 
+                    Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
                     Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)
                   ],
                   y: [
-                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000), 
+                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
                     Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000)
                   ],
                   rotate: [0, 360],
@@ -144,7 +152,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
           >
-            Save Aport 🍎
+            Save Aport
           </motion.h1>
 
           <motion.div
@@ -154,7 +162,7 @@ const Home = () => {
             transition={{ delay: 0.5, duration: 1 }}
           >
             <p className="text-lg md:text-2xl text-white/90 leading-relaxed">
-              Сохраняем уникальное наследие Казахстана — легендарный сорт яблок Апорт. 
+              Сохраняем уникальное наследие Казахстана — легендарный сорт яблок Апорт.
               Присоединяйтесь к миссии по возрождению культурного достояния.
             </p>
           </motion.div>
@@ -167,9 +175,9 @@ const Home = () => {
           >
             <motion.button
               onClick={handleLearnMore}
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 20px 40px -10px rgba(220, 38, 38, 0.6)" 
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px -10px rgba(220, 38, 38, 0.6)"
               }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-red-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-2xl mx-auto"
@@ -238,14 +246,14 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <AnimatedCard 
-                  delay={index * 0.1} 
+                <AnimatedCard
+                  delay={index * 0.1}
                   className="overflow-hidden cursor-pointer group"
                   onClick={() => handleFeatureClick(feature.path)}
                 >
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={feature.image} 
+                    <img
+                      src={feature.image}
                       alt={feature.title}
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                       onError={(e) => {
@@ -254,7 +262,7 @@ const Home = () => {
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
                   </div>
-                  
+
                   <div className="p-6">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -352,8 +360,8 @@ const Home = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="relative group cursor-pointer"
               >
-                <img 
-                  src={item.url} 
+                <img
+                  src={item.url}
                   alt={item.title}
                   className="w-full h-64 object-cover rounded-2xl shadow-lg"
                   onError={(e) => {
@@ -387,22 +395,22 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <div className="text-6xl mb-6">
-              🍎
+
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Апорт — наследие, которое стоит сохранить
+              Апорт — наследие, которое наш долг сохранить
             </h2>
-            
+
             <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-              На протяжении более чем 150 лет яблоки Апорт были неотъемлемой частью культурного 
-              наследия Казахстана. Их уникальный вкус, аромат и размер стали легендой, 
+              На протяжении более чем 150 лет яблоки Апорт были неотъемлемой частью культурного
+              наследия Казахстана. Их уникальный вкус, аромат и размер стали легендой,
               известной далеко за пределами нашей страны.
             </p>
 
             <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Сегодня, перед лицом современных вызовов, наша миссия — сохранить этот уникальный 
-              сорт для будущих поколений. Благодаря совместным усилиям фермеров, ученых и 
+              Сегодня, перед лицом современных вызовов, наша миссия — сохранить этот уникальный
+              сорт для будущих поколений. Благодаря совместным усилиям фермеров, ученых и
               энтузиастов, мы продолжаем писать историю Апорта.
             </p>
 
@@ -414,9 +422,9 @@ const Home = () => {
 
             <motion.button
               onClick={() => navigate("/solution")}
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 20px 40px -10px rgba(255, 255, 255, 0.3)" 
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px -10px rgba(255, 255, 255, 0.3)"
               }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-red-600 px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
