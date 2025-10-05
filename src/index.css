@@ -10,6 +10,13 @@ body {
 }
 
 /* Кастомные стилы для скроллбара */
+/* Стили для секций с белым и розовым фоном */
+.section-white {
+  background-color: #fff;
+}
+.section-pink {
+  background-color: #fff0f6;
+}
 ::-webkit-scrollbar {
   width: 6px;
 }

@@ -16,9 +16,87 @@ const History = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="min-h-screen py-12 px-4"
+        className="min-h-screen py-12 px-4 relative overflow-hidden"
       >
-        <div className="max-w-6xl mx-auto">
+        {/* Анимированный фон */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Градиентный фон */}
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-orange-50/60 to-red-50/70"></div>
+          
+          {/* Плавающие геометрические формы */}
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full border border-amber-200/40"
+              style={{
+                width: Math.random() * 200 + 50,
+                height: Math.random() * 200 + 50,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, Math.random() * 100 - 50, 0],
+                x: [0, Math.random() * 50 - 25, 0],
+                rotate: [0, 180, 360],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 20 + Math.random() * 20,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+
+          {/* Тонкие линии */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute h-px bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"
+              style={{
+                width: `${Math.random() * 200 + 100}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+              }}
+              animate={{
+                opacity: [0.3, 0.7, 0.3],
+                scaleX: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 4 + Math.random() * 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+          ))}
+
+          {/* Световые пятна */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-gradient-to-r from-amber-200/20 to-orange-200/10 blur-xl"
+              style={{
+                width: Math.random() * 300 + 100,
+                height: Math.random() * 300 + 100,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                opacity: [0.1, 0.3, 0.1],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 8 + Math.random() * 8,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,15 +176,43 @@ const History = () => {
             transition={{ delay: 1.2 }}
             className="mt-12"
           >
-            <AnimatedCard className="p-8 bg-gradient-to-r from-red-50 to-orange-50">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                🏆 Культурное наследие
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                Яблоки сорта Апорт — это не просто фрукты, а живая история Казахстана.
-                Их крупные плоды с уникальным сладким вкусом и неповторимым ароматом
-                стали символом алматинского региона и предметом национальной гордости.
-              </p>
+            <AnimatedCard className="p-8 bg-gradient-to-r from-red-50 to-orange-50 relative overflow-hidden">
+              {/* Декоративные элементы */}
+              <motion.div
+                className="absolute -right-4 -top-4 w-24 h-24 bg-red-200/20 rounded-full"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              />
+              <motion.div
+                className="absolute -left-6 -bottom-6 w-32 h-32 bg-orange-200/15 rounded-full"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              />
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  🏆 Культурное наследие
+                </h3>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  Яблоки сорта Апорт — это не просто фрукты, а живая история Казахстана.
+                  Их крупные плоды с уникальным сладким вкусом и неповторимым ароматом
+                  стали символом алматинского региона и предметом национальной гордости.
+                </p>
+              </div>
             </AnimatedCard>
           </motion.div>
         </div>
