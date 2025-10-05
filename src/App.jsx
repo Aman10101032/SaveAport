@@ -9,7 +9,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import History from "./pages/History";
 import SAR from "./pages/SAR";
-import YearSAR from "./pages/sar/YearSAR";
+import SeasonSAR from "./pages/sar/SeasonSAR";
+import YearCharts from "./pages/charts/YearCharts";
 import Solution from "./pages/Solution";
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/history" element={<History />} />
             <Route path="/sar" element={<SAR />} />
-            <Route path="/sar/:year" element={<YearSAR />} />
+            <Route path="/sar/:season" element={<SeasonSAR />} />
+            <Route path="/sar/:season/:month" element={<YearCharts />} />
             <Route path="/solution" element={<Solution />} />
           </Routes>
         </main>

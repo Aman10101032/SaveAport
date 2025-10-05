@@ -2,77 +2,80 @@
 import { motion } from "framer-motion";
 import { Calendar, TrendingUp, BarChart3 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { yearMetadata, generateYearsData } from "../data/yearData";
-
-
-const yearsData = generateYearsData();
+import { seasonsData } from "../data/seasonsData";
 
 export default function SAR() {
   const navigate = useNavigate();
 
-  const handleYearClick = (year) => {
-    navigate(`/sar/${year}`);
+  const handleSeasonClick = (season) => {
+    navigate(`/sar/${season}`);
   };
 
-  const YearCard = ({ year, data }) => {
-    const metadata = yearMetadata[year];
-    
+  const handleMonthClick = (season, monthEn, e) => {
+    e.stopPropagation(); // Останавливаем всплытие события, чтобы не срабатывал handleSeasonClick
+    navigate(`/sar/${season}/${monthEn}`);
+  };
+
+  const SeasonCard = ({ season, data }) => {
     return (
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.03, y: -5 }}
+        whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.3 }}
-        className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 cursor-pointer group"
-        onClick={() => handleYearClick(year)}
+        className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 cursor-pointer"
+        onClick={() => handleSeasonClick(season)}
       >
         {/* Фоновое изображение */}
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-          style={{ backgroundImage: `url(${metadata.image})` }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${data.image})` }}
         >
-          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
         {/* Контент карточки */}
-        <div className="relative z-10 p-6 text-white h-80 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <Calendar className="w-6 h-6" />
-              <h3 className="text-2xl font-bold">{year}</h3>
-            </div>
-            
-            <p className="text-white/90 leading-relaxed text-sm mb-4 line-clamp-3">
-              {metadata.description}
-            </p>
+        <div className="relative z-10 p-6 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <Calendar className="w-6 h-6" />
+            <h3 className="text-2xl font-bold">{data.name}</h3>
           </div>
           
-          {/* Статистика в карточке */}
-          <div className="grid grid-cols-2 gap-3">
+          <p className="text-white/90 leading-relaxed text-sm mb-4">
+            {data.description}
+          </p>
+          
+          {/* Статистика сезона */}
+          <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
-              <div className="text-lg font-bold">{data.общаяОценка}%</div>
-              <div className="text-xs opacity-90">Оценка</div>
-            </div>
-            <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
-              <div className="text-lg font-bold">{data.температура}°C</div>
+              <div className="text-sm font-bold">{data.temperature}</div>
               <div className="text-xs opacity-90">Температура</div>
             </div>
             <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
-              <div className="text-lg font-bold">{data.осадки}мм</div>
+              <div className="text-sm font-bold">{data.precipitation}</div>
               <div className="text-xs opacity-90">Осадки</div>
             </div>
-            <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
-              <div className="text-lg font-bold">{data.урожайность}%</div>
-              <div className="text-xs opacity-90">Урожайность</div>
+            <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center col-span-2">
+              <div className="text-sm font-bold">{data.growth}</div>
+              <div className="text-xs opacity-90">Фаза роста</div>
             </div>
           </div>
 
-          {/* Кнопка просмотра */}
-          <div className="mt-4 flex justify-center">
-            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 group-hover:bg-white/30 transition-colors">
-              <BarChart3 className="w-4 h-4" />
-              Смотреть аналитику
-            </div>
+          {/* Месяцы */}
+          <div className="space-y-2">
+            <h4 className="text-sm font-semibold mb-2">Месяцы:</h4>
+            {data.months.map((month, index) => (
+              <motion.button
+                key={month.en}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => handleMonthClick(season, month.en, e)}
+                className="w-full bg-white/20 backdrop-blur-sm px-4 py-3 rounded-lg text-white flex items-center justify-between group hover:bg-white/30 transition-all duration-300"
+              >
+                <span className="font-medium">{month.ru}</span>
+                <BarChart3 className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.button>
+            ))}
           </div>
         </div>
       </motion.div>
@@ -89,28 +92,67 @@ export default function SAR() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4">
-            SAR Данные - Историческая аналитика
+            SAR Данные - Сезонная аналитика
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-            Исследуйте 15-летнюю историю выращивания легендарного сорта яблок Апорт с помощью SAR технологий
+            Исследуйте сезонные изменения в выращивании легендарного сорта яблок Апорт с помощью SAR технологий
           </p>
           <div className="bg-white rounded-2xl p-6 shadow-lg inline-block">
             <p className="text-gray-700 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-red-600" />
-              <span>Выберите год для просмотра детальной SAR аналитики</span>
+              <span>Нажмите на сезон для просмотра общей аналитики или выберите конкретный месяц</span>
             </p>
           </div>
         </motion.div>
 
-        {/* Сетка карточек по годам */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Object.entries(yearsData)
-            .sort(([a], [b]) => parseInt(b) - parseInt(a))
-            .map(([year, data]) => (
-              <YearCard key={year} year={parseInt(year)} data={data} />
-            ))
-          }
+        {/* Сетка карточек по временам года */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Object.entries(seasonsData).map(([season, data]) => (
+            <SeasonCard key={season} season={season} data={data} />
+          ))}
         </div>
+
+        {/* Дополнительная информация */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mt-12 bg-white rounded-2xl p-8 shadow-lg"
+        >
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            Сезонные особенности выращивания Апорт
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🌱</span>
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">Весна</h3>
+              <p className="text-sm text-gray-600">Цветение, опыление, начало вегетации</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">☀️</span>
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">Лето</h3>
+              <p className="text-sm text-gray-600">Рост плодов, формирование урожая</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🍎</span>
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">Осень</h3>
+              <p className="text-sm text-gray-600">Сбор урожая, подготовка к зиме</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">❄️</span>
+              </div>
+              <h3 className="font-semibold text-gray-800 mb-2">Зима</h3>
+              <p className="text-sm text-gray-600">Покой, защита от морозов</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

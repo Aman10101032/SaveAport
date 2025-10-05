@@ -14,32 +14,7 @@ import {
 import { yearMetadata, generateYearsData } from "../../data/yearData";
 import { useState, useEffect } from "react";
 
-const generateDetailedData = (year) => {
-  const baseData = generateYearsData()[year];
-
-  return {
-    ...baseData,
-    // Дополнительные детальные данные
-    месячныеДанные: Array.from({ length: 12 }, (_, month) => ({
-      месяц: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'][month],
-      температура: baseData.температура + Math.floor(Math.random() * 15) - 7,
-      осадки: Math.floor(Math.random() * 100),
-      влажность: Math.floor(Math.random() * 30) + 60,
-      ростПобегов: Math.floor(Math.random() * 20) + 30
-    })),
-    sarПоказатели: {
-      интенсивность: Math.floor(Math.random() * 100),
-      когерентность: (Math.random() * 0.5 + 0.5).toFixed(2),
-      деформация: (Math.random() * 10).toFixed(1)
-    },
-    качествоПлодов: {
-      размер: Math.floor(Math.random() * 20) + 80, // мм
-      вес: Math.floor(Math.random() * 100) + 200, // грамм
-      сахаристость: (Math.random() * 5 + 10).toFixed(1), // %
-      кислотность: (Math.random() * 0.5 + 0.3).toFixed(2) // %
-    }
-  };
-};
+generateDetailedData
 
 export default function YearSAR() {
   const { year } = useParams();
