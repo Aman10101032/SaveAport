@@ -1,8 +1,8 @@
 // src/App.jsx
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,8 +15,8 @@ import Solution from "./pages/Solution";
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen gradient-bg">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-orange-50 to-red-50">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -30,7 +30,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
