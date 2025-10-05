@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/SaveAport/static/css/main.169ed4f3.css",
-    "main.js": "/SaveAport/static/js/main.b739863c.js",
-    "static/media/bg-3.jpg": "/SaveAport/static/media/bg-3.03c2d6cdafc98c83102e.jpg",
-    "static/media/bg-4.jpg": "/SaveAport/static/media/bg-4.09f7e7aa2fb159c721ea.jpg",
-    "static/media/bg-2.jpg": "/SaveAport/static/media/bg-2.fb118e57a2be98ccec9e.jpg",
-    "static/media/winter.jpg": "/SaveAport/static/media/winter.e06fbac78001b42f2c36.jpg",
-    "static/media/bg-1.jpg": "/SaveAport/static/media/bg-1.b32571c1a522db0a6c8d.jpg",
-    "static/media/qualityapple.jpeg": "/SaveAport/static/media/qualityapple.3d35b238c3bf5bba4e13.jpeg",
-    "static/media/history.jpg": "/SaveAport/static/media/history.4d562bafa00fd7935391.jpg",
-    "static/media/applgarden.jpg": "/SaveAport/static/media/applgarden.9f7eb658b84d7394c915.jpg",
-    "static/media/spring.jpg": "/SaveAport/static/media/spring.76379f83c22012d224d7.jpg",
-    "static/media/summer.jpg": "/SaveAport/static/media/summer.ae246df31683c1409440.jpg",
-    "static/media/autumn.jpg": "/SaveAport/static/media/autumn.dc586381d918edf11de7.jpg",
-    "static/media/farmerapple.jpg": "/SaveAport/static/media/farmerapple.3fc0bd59ab59a151369f.jpg",
-    "static/media/innovation.jpg": "/SaveAport/static/media/innovation.0644ffa496402499d102.jpg",
-    "static/media/freshapple.jpg": "/SaveAport/static/media/freshapple.91bf62475ab8d3ac8bc4.jpg",
-    "static/media/analytics.jpg": "/SaveAport/static/media/analytics.9d64034b6a70d356bde9.jpg",
-    "index.html": "/SaveAport/index.html",
-    "main.169ed4f3.css.map": "/SaveAport/static/css/main.169ed4f3.css.map",
-    "main.b739863c.js.map": "/SaveAport/static/js/main.b739863c.js.map"
+    "main.css": "/static/css/main.169ed4f3.css",
+    "main.js": "/static/js/main.128fe7e5.js",
+    "static/media/bg-3.jpg": "/static/media/bg-3.03c2d6cdafc98c83102e.jpg",
+    "static/media/bg-4.jpg": "/static/media/bg-4.09f7e7aa2fb159c721ea.jpg",
+    "static/media/bg-2.jpg": "/static/media/bg-2.fb118e57a2be98ccec9e.jpg",
+    "static/media/winter.jpg": "/static/media/winter.e06fbac78001b42f2c36.jpg",
+    "static/media/bg-1.jpg": "/static/media/bg-1.b32571c1a522db0a6c8d.jpg",
+    "static/media/qualityapple.jpeg": "/static/media/qualityapple.3d35b238c3bf5bba4e13.jpeg",
+    "static/media/history.jpg": "/static/media/history.4d562bafa00fd7935391.jpg",
+    "static/media/applgarden.jpg": "/static/media/applgarden.9f7eb658b84d7394c915.jpg",
+    "static/media/spring.jpg": "/static/media/spring.76379f83c22012d224d7.jpg",
+    "static/media/summer.jpg": "/static/media/summer.ae246df31683c1409440.jpg",
+    "static/media/autumn.jpg": "/static/media/autumn.dc586381d918edf11de7.jpg",
+    "static/media/farmerapple.jpg": "/static/media/farmerapple.3fc0bd59ab59a151369f.jpg",
+    "static/media/innovation.jpg": "/static/media/innovation.0644ffa496402499d102.jpg",
+    "static/media/freshapple.jpg": "/static/media/freshapple.91bf62475ab8d3ac8bc4.jpg",
+    "static/media/analytics.jpg": "/static/media/analytics.9d64034b6a70d356bde9.jpg",
+    "index.html": "/index.html",
+    "main.169ed4f3.css.map": "/static/css/main.169ed4f3.css.map",
+    "main.128fe7e5.js.map": "/static/js/main.128fe7e5.js.map"
   },
   "entrypoints": [
     "static/css/main.169ed4f3.css",
-    "static/js/main.b739863c.js"
+    "static/js/main.128fe7e5.js"
   ]
 }
