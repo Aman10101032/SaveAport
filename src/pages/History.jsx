@@ -18,13 +18,13 @@ const History = () => {
         transition={{ duration: 0.6 }}
         className="min-h-screen py-12 px-4 relative overflow-hidden"
       >
-        {/* Анимированный фон */}
+        {/* Animated background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Градиентный фон */}
+          {/* Gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-orange-50/60 to-red-50/70"></div>
-          
-          {/* Плавающие геометрические формы */}
-          {[...Array(8)].map((_, i) => ( // Уменьшено с 15 до 8
+
+          {/* Floating geometric shapes */}
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full border border-amber-200/40"
@@ -49,8 +49,8 @@ const History = () => {
             />
           ))}
 
-          {/* Яркие и четкие линии */}
-          {[...Array(8)].map((_, i) => ( // Уменьшено с 15 до 8
+          {/* Bright lines */}
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute h-0.5 bg-gradient-to-r from-transparent via-red-400/80 to-transparent"
@@ -72,8 +72,8 @@ const History = () => {
             />
           ))}
 
-          {/* Световые пятна */}
-          {[...Array(3)].map((_, i) => ( // Уменьшено с 6 до 3
+          {/* Light spots */}
+          {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full bg-gradient-to-r from-amber-200/20 to-orange-200/10 blur-xl"
@@ -104,10 +104,10 @@ const History = () => {
             className="text-center mb-12"
           >
             <h1 className="text-5xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4">
-              История Апорта
+              The History of Aport
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Путешествие во времени: от первых саженцев до символа национальной гордости
+              A journey through time: from the first saplings to a symbol of national pride
             </p>
           </motion.div>
 
@@ -125,12 +125,12 @@ const History = () => {
                   className="flex-1 p-6 cursor-pointer relative overflow-hidden"
                   onClick={() => setSelectedItem(item)}
                 >
-                  {/* Фоновое изображение */}
+                  {/* Background image */}
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${item.bg})` }}
                   />
-                  {/* Затемнение для лучшей читаемости текста */}
+                  {/* Overlay for better readability */}
                   <div className="absolute inset-0 bg-black bg-opacity-40" />
 
                   <div className="relative z-10">
@@ -177,15 +177,13 @@ const History = () => {
             className="mt-12"
           >
             <AnimatedCard className="p-8 bg-white relative overflow-hidden border border-gray-100 shadow-lg">
-              {/* Уменьшено количество яблок с 16 до 8, красиво разбросаны */}
               {[...Array(8)].map((_, index) => (
                 <motion.div
                   key={index}
-                  className={`absolute ${
-                    index % 4 === 0 ? 'text-3xl text-red-300/50' : 
-                    index % 4 === 1 ? 'text-2xl text-red-400/40' : 
-                    index % 4 === 2 ? 'text-xl text-red-500/30' : 'text-lg text-red-600/20'
-                  }`}
+                  className={`absolute ${index % 4 === 0 ? 'text-3xl text-red-300/50' :
+                      index % 4 === 1 ? 'text-2xl text-red-400/40' :
+                        index % 4 === 2 ? 'text-xl text-red-500/30' : 'text-lg text-red-600/20'
+                    }`}
                   initial={{
                     x: Math.random() * 400 - 50,
                     y: Math.random() * 200 - 25,
@@ -204,15 +202,14 @@ const History = () => {
                     repeatType: "reverse",
                   }}
                   style={{
-                    left: `${(index * 12) % 95}%`, // Увеличено расстояние между яблоками
-                    top: `${(index * 15) % 85}%`, // Добавлено вертикальное распределение
+                    left: `${(index * 12) % 95}%`,
+                    top: `${(index * 15) % 85}%`,
                   }}
                 >
                   🍎
                 </motion.div>
               ))}
-              
-              {/* Плавающие элементы */}
+
               <motion.div
                 className="absolute -right-8 -top-8 w-32 h-32 bg-red-50 rounded-full"
                 animate={{
@@ -225,7 +222,7 @@ const History = () => {
                   repeatType: "reverse",
                 }}
               />
-              
+
               <motion.div
                 className="absolute -left-6 -bottom-6 w-24 h-24 bg-orange-50 rounded-full"
                 animate={{
@@ -240,7 +237,6 @@ const History = () => {
                 }}
               />
 
-              {/* Дополнительные декоративные элементы */}
               <motion.div
                 className="absolute top-1/2 right-12 w-16 h-16 bg-yellow-50 rounded-full"
                 animate={{
@@ -263,12 +259,12 @@ const History = () => {
                   className="flex items-center gap-3 mb-6"
                 >
                   <motion.div
-                    animate={{ 
+                    animate={{
                       rotate: [0, 10, -10, 0],
                       scale: [1, 1.1, 1]
                     }}
-                    transition={{ 
-                      duration: 3, 
+                    transition={{
+                      duration: 3,
                       repeat: Infinity,
                       repeatType: "reverse"
                     }}
@@ -277,7 +273,7 @@ const History = () => {
                     🏆
                   </motion.div>
                   <h3 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-                    Культурное наследие
+                    Cultural Heritage
                   </h3>
                 </motion.div>
 
@@ -287,11 +283,11 @@ const History = () => {
                   transition={{ delay: 1.6 }}
                 >
                   <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                    Яблоки сорта Апорт — это не просто фрукты, а живая история Казахстана.
-                    Их крупные плоды с уникальным сладким вкусом и неповторимым ароматом
-                    стали символом алматинского региона и предметом национальной гордости.
+                    Aport apples are not just fruits — they are a living part of Kazakhstan’s history.
+                    Their large, sweet, and aromatic fruits have become a symbol of the Almaty region
+                    and a source of national pride.
                   </p>
-                  
+
                   <div className="grid grid-cols-2 gap-4 mt-6">
                     <motion.div
                       whileHover={{ scale: 1.05, y: -5 }}
@@ -299,20 +295,20 @@ const History = () => {
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-xl">🌱</span>
-                        <h4 className="font-semibold text-red-700">Традиции</h4>
+                        <h4 className="font-semibold text-red-700">Traditions</h4>
                       </div>
-                      <p className="text-sm text-red-600">Сохранение вековых методов выращивания</p>
+                      <p className="text-sm text-red-600">Preserving ancient cultivation methods</p>
                     </motion.div>
-                    
+
                     <motion.div
                       whileHover={{ scale: 1.05, y: -5 }}
                       className="p-4 bg-orange-50 rounded-lg border border-orange-100"
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-xl">🌟</span>
-                        <h4 className="font-semibold text-orange-700">Наследие</h4>
+                        <h4 className="font-semibold text-orange-700">Heritage</h4>
                       </div>
-                      <p className="text-sm text-orange-600">Часть культурного кода Казахстана</p>
+                      <p className="text-sm text-orange-600">Part of Kazakhstan’s cultural identity</p>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -329,7 +325,7 @@ const History = () => {
             className="p-8 relative min-h-[500px] bg-cover bg-center rounded-lg overflow-hidden"
             style={{ backgroundImage: `url(${selectedItem.bg})` }}
           >
-            {/* Затемнение фона */}
+            {/* Background overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-60" />
 
             <div className="relative z-10">
@@ -352,7 +348,7 @@ const History = () => {
                   </p>
 
                   <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4 mb-6 border border-white border-opacity-30">
-                    <h4 className="font-semibold text-white mb-3 text-shadow">📊 Ключевые факты:</h4>
+                    <h4 className="font-semibold text-white mb-3 text-shadow">📊 Key Facts:</h4>
                     <ul className="space-y-2">
                       {selectedItem.details.map((detail, index) => (
                         <li key={index} className="flex items-center gap-2 text-white text-shadow">
@@ -370,7 +366,7 @@ const History = () => {
                   onClick={() => setSelectedItem(null)}
                   className="px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
                 >
-                  Закрыть
+                  Close
                 </button>
               </div>
             </div>

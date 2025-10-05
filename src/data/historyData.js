@@ -8,79 +8,79 @@ import bg4 from "../img/bg/bg-4.jpg";
 
 export const timelineData = [
     {
-        year: "XIX век",
-        title: "Появление в Казахстане",
+        year: "19th century",
+        title: "Appearance in Kazakhstan",
         description:
-            "Апорт впервые появился в Алматинской области и быстро адаптировался к местным условиям",
-        fullDescription: `Апорт — один из старейших сортов яблок, который появился в Казахстане в XIX веке. 
-    В 1865 году в окрестности Верного (будущая Алма-Ата) саженцы «Апорта Александра» привез русский переселенец — Егор Васильевич Редько. 
-    Уникальные климатические условия Заилийского Алатау оказались идеальными для этого сорта.
+            "Aport first appeared in the Almaty region and quickly adapted to local conditions",
+        fullDescription: `Aport is one of the oldest apple varieties that appeared in Kazakhstan in the 19th century. 
+    In 1865, in the vicinity of Verny (future Almaty), seedlings of “Aport Alexandrovsky” were brought by a Russian settler — Yegor Vasilyevich Redko. 
+    The unique climatic conditions of the Trans-Ili Alatau turned out to be ideal for this variety.
     
-    Яблоки достигли невероятных размеров — до 500–600 граммов, приобрели насыщенный вкус и аромат, 
-    что сделало их знаменитыми далеко за пределами региона.`,
+    The apples reached incredible sizes — up to 500–600 grams, gained a rich flavor and aroma, 
+    which made them famous far beyond the region.`,
         image: "🍎",
         bg: bg1,
         details: [
-            "Первые упоминания: 1860-е годы",
-            "Регион: Алматинская область",
-            "Особенности: Крупноплодность, адаптивность",
+            "First mentions: 1860s",
+            "Region: Almaty region",
+            "Features: Large-fruited, adaptive",
         ],
     },
     {
         year: "1900-1950",
-        title: "Период расцвета",
+        title: "Period of prosperity",
         description:
-            "Сорт получил мировое признание на международных выставках",
-        fullDescription: `В начале XX века Апорт получил мировое признание. На международных выставках 
-    в Париже (1900) и Мюнхене (1908) яблоки сорта Апорт были удостоены золотых медалей.
+            "The variety gained worldwide recognition at international exhibitions",
+        fullDescription: `At the beginning of the 20th century, Aport gained worldwide recognition. At international exhibitions 
+    in Paris (1900) and Munich (1908), apples of the Aport variety were awarded gold medals.
     
-    К 1930-м годам Апорт стал основным промышленным сортом в Казахстане. Были заложены 
-    крупные сады, разработаны технологии выращивания. В этот период сорт стал настоящим 
-    символом Алма-Аты.`,
+    By the 1930s, Aport had become the main industrial variety in Kazakhstan. Large orchards were planted, 
+    and cultivation technologies were developed. During this period, the variety became a true 
+    symbol of Almaty.`,
         image: "🏆",
         bg: bg2,
         details: [
-            "1900 г. — Признание в Париже",
-            "1908 г. — Золотая медаль в Мюнхене",
-            "1930-е — Промышленное выращивание",
+            "1900 — Recognition in Paris",
+            "1908 — Gold medal in Munich",
+            "1930s — Industrial cultivation",
         ],
     },
     {
         year: "1960-1990",
-        title: "Массовое производство",
+        title: "Mass production",
         description:
-            "Апорт стал символом Алматы и визитной карточкой региона",
-        fullDescription: `В советский период Апорт переживал золотую эру. К 1980-м годам площади 
-    яблоневых садов в Алматинской области достигли 15 тысяч гектаров. Ежегодно собирали 
-    до 30 тысяч тонн яблок этого сорта.
+            "Aport became a symbol of Almaty and a hallmark of the region",
+        fullDescription: `During the Soviet period, Aport experienced a golden era. By the 1980s, the area of 
+    apple orchards in the Almaty region reached 15 thousand hectares. Every year up to 
+    30 thousand tons of apples of this variety were harvested.
     
-    Апорт стал неотъемлемой частью культуры и идентичности Алматы. Его дарили высоким 
-    гостям, экспортировали в другие республики, изображали на сувенирной продукции.`,
+    Aport became an integral part of the culture and identity of Almaty. It was presented to 
+    high-ranking guests, exported to other republics, and depicted on souvenir products.`,
         image: "🏭",
         bg: bg3,
         details: [
-            "Площади садов: 15,000 га",
-            "Урожайность: 30,000 тонн/год",
-            "Статус: Символ Алматы",
+            "Orchard area: 15,000 ha",
+            "Yield: 30,000 tons/year",
+            "Status: Symbol of Almaty",
         ],
     },
     {
         year: "2000+",
-        title: "Современные вызовы",
+        title: "Modern challenges",
         description:
-            "Борьба за сохранение уникального генофонда и традиций",
-        fullDescription: `С распадом СССР и изменением экономических условий площади садов 
-    значительно сократились. Уникальный генофонд оказался под угрозой.
+            "The struggle to preserve the unique gene pool and traditions",
+        fullDescription: `With the collapse of the USSR and changes in economic conditions, orchard areas 
+    were significantly reduced. The unique gene pool came under threat.
     
-    Однако в XXI веке началось возрождение интереса к Апорту. Создаются питомники, 
-    внедряются современные технологии выращивания, развивается агротуризм. 
-    Апорт остается важной частью культурного наследия Казахстана.`,
+    However, in the 21st century, interest in Aport began to revive. Nurseries are being created, 
+    modern cultivation technologies are being introduced, and agrotourism is developing. 
+    Aport remains an important part of Kazakhstan’s cultural heritage.`,
         image: "🛡️",
         bg: bg4,
         details: [
-            "Вызов: Сокращение площадей",
-            "Решение: Современные технологии",
-            "Перспектива: Возрождение сорта",
+            "Challenge: Reduction of orchards",
+            "Solution: Modern technologies",
+            "Perspective: Revival of the variety",
         ],
     },
 ];

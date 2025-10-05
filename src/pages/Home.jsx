@@ -1,18 +1,18 @@
 // src/pages/Home.jsx
 import { motion } from "framer-motion";
 import AnimatedCard from "../components/AnimatedCard";
-import { 
-  ArrowRight, 
-  BarChart3, 
-  History, 
-  Lightbulb, 
-  Users, 
-  Target, 
-  Award, 
-  Play, 
-  Heart, 
-  Shield, 
-  Leaf 
+import {
+  ArrowRight,
+  BarChart3,
+  History,
+  Lightbulb,
+  Users,
+  Target,
+  Award,
+  Play,
+  Heart,
+  Shield,
+  Leaf
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import innovationImg from "../img/innovation.jpg";
@@ -151,7 +151,7 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-red-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 shadow-2xl mx-auto"
             >
-              Узнать больше <ArrowRight className="w-5 h-5" />
+              Learn more <ArrowRight className="w-5 h-5" />
             </motion.button>
           </motion.div>
         </div>
@@ -395,7 +395,7 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-white text-red-600 px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
             >
-              Узнать о наших решениях <ArrowRight className="w-5 h-5" />
+              Learn about our solutions <ArrowRight className="w-5 h-5" />
             </motion.button>
           </motion.div>
         </div>

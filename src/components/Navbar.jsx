@@ -8,10 +8,10 @@ const Navbar = () => {
   const [isHovered, setIsHovered] = useState(null);
 
   const navItems = [
-    { path: "/", label: "Главная" },
-    { path: "/history", label: "История" },
-    { path: "/sar", label: "SAR Данные  " },
-    { path: "/solution", label: "Решение" }
+    { path: "/", label: "Home" },
+    { path: "/history", label: "History" },
+    { path: "/sar", label: "SAR Data " },
+    { path: "/solution", label: "Solution" }
   ];
 
   return (
@@ -29,8 +29,8 @@ const Navbar = () => {
           <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
             🍎 Save Aport
           </Link>
-        </motion.div>   
-        
+        </motion.div>
+
         <div className="flex space-x-8">
           {navItems.map((item) => (
             <motion.div
@@ -41,11 +41,10 @@ const Navbar = () => {
             >
               <Link
                 to={item.path}
-                className={`relative px-3 py-2 font-medium transition-colors duration-300 ${
-                  location.pathname === item.path
+                className={`relative px-3 py-2 font-medium transition-colors duration-300 ${location.pathname === item.path
                     ? "text-red-600"
                     : "text-gray-600 hover:text-red-500"
-                }`}
+                  }`}
               >
                 {item.label}
                 {(location.pathname === item.path || isHovered === item.path) && (

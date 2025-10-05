@@ -2,22 +2,22 @@
 export const features = [
   {
     icon: "History",
-    title: "Богатая история",
-    description: "Узнайте о centuries-old наследии сорта Апорт",
+    title: "Rich History",
+    description: "Learn about the centuries-old heritage of the Aport variety",
     path: "/history",
     imageKey: "historyImg"
   },
   {
     icon: "BarChart3",
-    title: "Аналитика данных",
-    description: "Изучите статистику и тенденции производства",
+    title: "Data Analytics",
+    description: "Explore production statistics and trends",
     path: "/SAR",
     imageKey: "analyticsImg"
   },
   {
     icon: "Lightbulb",
-    title: "Инновации",
-    description: "Современные решения для сохранения сорта",
+    title: "Innovation",
+    description: "Modern solutions for preserving the variety",
     path: "/solution",
     imageKey: "innovationImg"
   }
@@ -26,74 +26,74 @@ export const features = [
 export const gallery = [
   {
     imageKey: "freshappleImg",
-    title: "Свежий урожай"
+    title: "Fresh Harvest"
   },
   {
     imageKey: "applgardenImg",
-    title: "Яблоневый сад"
+    title: "Apple Orchard"
   },
   {
     imageKey: "farmerappleImg",
-    title: "Традиции выращивания"
+    title: "Cultivation Traditions"
   },
   {
     imageKey: "qualityappleImg",
-    title: "Качество Апорта"
+    title: "Aport Quality"
   }
 ];
 
 export const values = [
   {
     icon: "Heart",
-    title: "Сохраняем наследие",
-    description: "Заботимся о сохранении уникального генофонда Апорта для будущих поколений"
+    title: "Preserving Heritage",
+    description: "We care about preserving the unique gene pool of Aport for future generations"
   },
   {
     icon: "Shield",
-    title: "Защищаем традиции",
-    description: "Поддерживаем фермеров и сохраняем традиционные методы выращивания"
+    title: "Protecting Traditions",
+    description: "We support farmers and preserve traditional cultivation methods"
   },
   {
     icon: "Leaf",
-    title: "Развиваем экологию",
-    description: "Внедряем устойчивые и экологичные методы сельского хозяйства"
+    title: "Developing Ecology",
+    description: "We implement sustainable and eco-friendly agricultural practices"
   }
 ];
 
 export const stats = [
-  { icon: "Users", number: "10,000+", label: "Фермеров" },
-  { icon: "Target", number: "150+", label: "Лет истории" },
-  { icon: "Award", number: "50+", label: "Наград" },
-  { icon: "Play", number: "100%", label: "Натурально" }
+  { icon: "Users", number: "10,000+", label: "Farmers" },
+  { icon: "Target", number: "150+", label: "Years of history" },
+  { icon: "Award", number: "50+", label: "Awards" },
+  { icon: "Play", number: "100%", label: "Natural" }
 ];
 
 export const backgroundImage = "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1920&q=80";
 
 export const heroContent = {
   title: "Save Aport",
-  description: "Сохраняем уникальное наследие Казахстана — легендарный сорт яблок Апорт. Присоединяйтесь к миссии по возрождению культурного достояния."
+  description: "Preserving the unique heritage of Kazakhstan — the legendary Aport apple variety. Join the mission to revive this cultural treasure."
 };
 
 export const sectionTitles = {
   mission: {
-    title: "Наша миссия",
-    description: "Мы работаем над сохранением и развитием уникального сорта яблок Апорт"
+    title: "Our Mission",
+    description: "We are working to preserve and develop the unique Aport apple variety"
   },
   values: {
-    title: "Наши ценности",
-    description: "Основные принципы, которые направляют нашу работу по сохранению Апорта"
+    title: "Our Values",
+    description: "The core principles that guide our work in preserving Aport"
   },
   gallery: {
-    title: "Галерея Апорта",
-    description: "Увидьте красоту и величие легендарного сорта"
+    title: "Aport Gallery",
+    description: "See the beauty and grandeur of the legendary variety"
   }
 };
 
 export const conclusionContent = {
-  title: "Апорт — наследие, которое наш долг сохранить",
+  title: "Aport — a heritage we are bound to preserve",
   paragraphs: [
-    "На протяжении более чем 150 лет яблоки Апорт были неотъемлемой частью культурного наследия Казахстана. Их уникальный вкус, аромат и размер стали легендой, известной далеко за пределами нашей страны.",
-    "Сегодня, перед лицом современных вызовов, наша миссия — сохранить этот уникальный сорт для будущих поколений. Благодаря совместным усилиям фермеров, ученых и энтузиастов, мы продолжаем писать историю Апорта."
+    "For more than 150 years, Aport apples have been an integral part of Kazakhstan’s cultural heritage. Their unique taste, aroma, and size have become a legend known far beyond our country.",
+    "Today, in the face of modern challenges, our mission is to preserve this unique variety for future generations. Thanks to the joint efforts of farmers, scientists, and enthusiasts, we continue to write the history of Aport."
   ],
-  quote: "Великие дела начинаются с маленьких яблок"
+  quote: "Great things begin with small apples"
 };

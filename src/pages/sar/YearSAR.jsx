@@ -6,21 +6,19 @@ import { seasonsData } from "../../data/seasonsData";
 import { nasaData } from "../../data/nasaData";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
-// Добавляем недостающую функцию generateDetailedData прямо в этот файл
+// Function to generate synthetic detailed monthly data
 const generateDetailedData = (year, month) => {
-  // Базовые данные для генерации детализированных данных по месяцам
   const baseData = nasaData.find(item => item.year === year) || nasaData[nasaData.length - 1];
-  
-  // Генерация случайных колебаний на основе базовых данных
+
   const generateMonthlyVariation = (baseValue) => {
-    const variation = (Math.random() - 0.5) * 2; // от -1 до 1
+    const variation = (Math.random() - 0.5) * 2; // from -1 to 1
     return baseValue + variation * 0.5;
   };
 
   const monthNames = {
-    january: 'Январь', february: 'Февраль', march: 'Март', april: 'Апрель',
-    may: 'Май', june: 'Июнь', july: 'Июль', august: 'Август',
-    september: 'Сентябрь', october: 'Октябрь', november: 'Ноябрь', december: 'Декабрь'
+    january: 'January', february: 'February', march: 'March', april: 'April',
+    may: 'May', june: 'June', july: 'July', august: 'August',
+    september: 'September', october: 'October', november: 'November', december: 'December'
   };
 
   return {
@@ -32,7 +30,6 @@ const generateDetailedData = (year, month) => {
     AirHumidity: generateMonthlyVariation(baseData.AirHumidity),
     Temperature: generateMonthlyVariation(baseData.Temperature),
     Favorability: generateMonthlyVariation(baseData.Favorability),
-    // Дополнительные показатели для детального анализа
     VegetationIndex: 0.7 + Math.random() * 0.3,
     SoilTemperature: generateMonthlyVariation(baseData.Temperature - 2),
     WindSpeed: 2 + Math.random() * 8,
@@ -41,9 +38,9 @@ const generateDetailedData = (year, month) => {
   };
 };
 
-// Функция для получения данных месяца
+// Helper to get monthly data
 const getMonthData = (season, month) => {
-  const currentYear = 2024; // Текущий год для демонстрации
+  const currentYear = 2024;
   return generateDetailedData(currentYear, month);
 };
 
@@ -57,39 +54,39 @@ export default function YearSAR() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Данные не найдены</h1>
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Data not found</h1>
           <button
             onClick={() => navigate(`/sar/${season}`)}
             className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Вернуться к сезону
+            Back to season
           </button>
         </div>
       </div>
     );
   }
 
-  // Данные для графиков
   const chartData = [
-    { name: 'Солн. радиация', value: monthData.SolarRadiation },
-    { name: 'Вл. почвы', value: monthData.SoilMoisture },
-    { name: 'Осадки', value: monthData.Precipitation },
-    { name: 'Вл. воздуха', value: monthData.AirHumidity },
-    { name: 'Температура', value: monthData.Temperature },
-    { name: 'Благоприятность', value: monthData.Favorability }
+    { name: 'Solar Radiation', value: monthData.SolarRadiation },
+    { name: 'Soil Moisture', value: monthData.SoilMoisture },
+    { name: 'Precipitation', value: monthData.Precipitation },
+    { name: 'Air Humidity', value: monthData.AirHumidity },
+    { name: 'Temperature', value: monthData.Temperature },
+    { name: 'Favorability', value: monthData.Favorability }
   ];
 
   const weeklyData = [
-    { week: '1 нед', growth: 65, health: 70, activity: 60 },
-    { week: '2 нед', growth: 75, health: 75, activity: 70 },
-    { week: '3 нед', growth: 80, health: 80, activity: 75 },
-    { week: '4 нед', growth: 85, health: 85, activity: 80 }
+    { week: 'Week 1', growth: 65, health: 70, activity: 60 },
+    { week: 'Week 2', growth: 75, health: 75, activity: 70 },
+    { week: 'Week 3', growth: 80, health: 80, activity: 75 },
+    { week: 'Week 4', growth: 85, health: 85, activity: 80 }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 py-8">
       <div className="container mx-auto px-4">
-        {/* Навигация */}
+
+        {/* Navigation */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,7 +99,7 @@ export default function YearSAR() {
             className="flex items-center gap-2 text-red-600 hover:text-red-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            К сезонам
+            To seasons
           </motion.button>
           <span className="text-gray-400">/</span>
           <motion.button
@@ -117,7 +114,7 @@ export default function YearSAR() {
           <span className="text-gray-600 font-medium">{monthData.month}</span>
         </motion.div>
 
-        {/* Заголовок */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -130,77 +127,78 @@ export default function YearSAR() {
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Детальный анализ SAR данных за {monthData.month.toLowerCase()} {monthData.year} года
+            Detailed SAR data analysis for {monthData.month.toLowerCase()} {monthData.year}
           </p>
         </motion.div>
 
-        {/* Основной контент */}
+        {/* Main content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Левая колонка - основные показатели */}
+
+          {/* Left column - key indicators */}
           <div className="lg:col-span-1 space-y-6">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-2xl shadow-lg p-6"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Основные показатели</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Key indicators</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Thermometer className="w-5 h-5 text-red-600" />
-                    <span className="text-gray-700">Температура</span>
+                    <span className="text-gray-700">Temperature</span>
                   </div>
                   <span className="font-bold text-red-600">{monthData.Temperature.toFixed(2)}°C</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Droplets className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">Осадки</span>
+                    <span className="text-gray-700">Precipitation</span>
                   </div>
-                  <span className="font-bold text-blue-600">{monthData.Precipitation.toFixed(2)} мм</span>
+                  <span className="font-bold text-blue-600">{monthData.Precipitation.toFixed(2)} mm</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Wind className="w-5 h-5 text-green-600" />
-                    <span className="text-gray-700">Влажность почвы</span>
+                    <span className="text-gray-700">Soil Moisture</span>
                   </div>
                   <span className="font-bold text-green-600">{monthData.SoilMoisture.toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Cloud className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Индекс растительности</span>
+                    <span className="text-gray-700">Vegetation Index</span>
                   </div>
                   <span className="font-bold text-purple-600">{(monthData.VegetationIndex * 100).toFixed(0)}%</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Статус развития */}
+            {/* Growth status */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
               className="bg-white rounded-2xl shadow-lg p-6"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Статус развития</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Growth status</h3>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between mb-1">
-                    <span className="text-gray-600">Рост биомассы</span>
+                    <span className="text-gray-600">Biomass Growth</span>
                     <span className="font-bold text-green-600">{(monthData.VegetationIndex * 100).toFixed(0)}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-green-600 h-2 rounded-full" 
+                    <div
+                      className="bg-green-600 h-2 rounded-full"
                       style={{ width: `${monthData.VegetationIndex * 100}%` }}
                     ></div>
                   </div>
                 </div>
                 <div>
                   <div className="flex justify-between mb-1">
-                    <span className="text-gray-600">Здоровье растений</span>
-                    <span className="font-bold text-blue-600">{85}%</span>
+                    <span className="text-gray-600">Plant Health</span>
+                    <span className="font-bold text-blue-600">85%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div className="bg-blue-600 h-2 rounded-full" style={{ width: '85%' }}></div>
@@ -208,8 +206,8 @@ export default function YearSAR() {
                 </div>
                 <div>
                   <div className="flex justify-between mb-1">
-                    <span className="text-gray-600">Активность фотосинтеза</span>
-                    <span className="font-bold text-purple-600">{78}%</span>
+                    <span className="text-gray-600">Photosynthesis Activity</span>
+                    <span className="font-bold text-purple-600">78%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div className="bg-purple-600 h-2 rounded-full" style={{ width: '78%' }}></div>
@@ -219,9 +217,9 @@ export default function YearSAR() {
             </motion.div>
           </div>
 
-          {/* Центральная и правая колонки - графики */}
+          {/* Right side - charts */}
           <div className="lg:col-span-2 space-y-6">
-            {/* График показателей */}
+            {/* Monthly indicators chart */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -230,7 +228,7 @@ export default function YearSAR() {
             >
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
                 <BarChart3 className="w-5 h-5 text-purple-600" />
-                Основные показатели за {monthData.month}
+                Monthly Indicators for {monthData.month}
               </h3>
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
@@ -240,13 +238,13 @@ export default function YearSAR() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="value" fill="#8884d8" name="Значение" />
+                    <Bar dataKey="value" fill="#8884d8" name="Value" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
             </motion.div>
 
-            {/* График недельного развития */}
+            {/* Weekly growth chart */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -254,7 +252,7 @@ export default function YearSAR() {
               className="bg-white rounded-2xl shadow-lg p-6"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-6">
-                Динамика развития в течение месяца
+                Weekly Growth Dynamics
               </h3>
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
@@ -264,9 +262,9 @@ export default function YearSAR() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="growth" stroke="#82ca9d" name="Рост" strokeWidth={2} />
-                    <Line type="monotone" dataKey="health" stroke="#8884d8" name="Здоровье" strokeWidth={2} />
-                    <Line type="monotone" dataKey="activity" stroke="#ffc658" name="Активность" strokeWidth={2} />
+                    <Line type="monotone" dataKey="growth" stroke="#82ca9d" name="Growth" strokeWidth={2} />
+                    <Line type="monotone" dataKey="health" stroke="#8884d8" name="Health" strokeWidth={2} />
+                    <Line type="monotone" dataKey="activity" stroke="#ffc658" name="Activity" strokeWidth={2} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>

@@ -6,55 +6,55 @@ import winterImg from '../img/seasons/winter.jpg';
 
 export const seasonsData = {
   "spring": {
-    name: "Весна",
+    name: "Spring",
     months: [
-      { en: "march", ru: "Март" },
-      { en: "april", ru: "Апрель" }, 
-      { en: "may", ru: "Май" }
+      { en: "march", ru: "March" },
+      { en: "april", ru: "April" },
+      { en: "may", ru: "May" }
     ],
     image: springImg,
-    description: "Период цветения и активного роста яблонь",
+    description: "The period of blooming and active apple tree growth",
     temperature: "8-18°C",
-    precipitation: "120-180мм",
-    growth: "Активный"
-  },    
+    precipitation: "120-180mm",
+    growth: "Active"
+  },
   "summer": {
-    name: "Лето",
+    name: "Summer",
     months: [
-      { en: "june", ru: "Июнь" },
-      { en: "july", ru: "Июль" },
-      { en: "august", ru: "Август" }
+      { en: "june", ru: "June" },
+      { en: "july", ru: "July" },
+      { en: "august", ru: "August" }
     ],
     image: summerImg,
-    description: "Созревание плодов и формирование урожая",
-    temperature: "20-30°C", 
-    precipitation: "80-150мм",
-    growth: "Созревание"
+    description: "Fruit ripening and harvest formation",
+    temperature: "20-30°C",
+    precipitation: "80-150mm",
+    growth: "Ripening"
   },
   "autumn": {
-    name: "Осень",
+    name: "Autumn",
     months: [
-      { en: "september", ru: "Сентябрь" },
-      { en: "october", ru: "Октябрь" },
-      { en: "november", ru: "Ноябрь" }
+      { en: "september", ru: "September" },
+      { en: "october", ru: "October" },
+      { en: "november", ru: "November" }
     ],
     image: autumnImg,
-    description: "Сбор урожая и подготовка к зиме",
+    description: "Harvesting and preparation for winter",
     temperature: "5-15°C",
-    precipitation: "100-160мм",
-    growth: "Сбор"
+    precipitation: "100-160mm",
+    growth: "Harvest"
   },
   "winter": {
-    name: "Зима", 
+    name: "Winter",
     months: [
-      { en: "december", ru: "Декабрь" },
-      { en: "january", ru: "Январь" },
-      { en: "february", ru: "Февраль" }
+      { en: "december", ru: "December" },
+      { en: "january", ru: "January" },
+      { en: "february", ru: "February" }
     ],
     image: winterImg,
-    description: "Период покоя и зимней вегетации",
+    description: "The period of dormancy and winter vegetation",
     temperature: "-5-5°C",
-    precipitation: "50-100мм", 
-    growth: "Покой"
+    precipitation: "50-100mm",
+    growth: "Dormant"
   }
 };

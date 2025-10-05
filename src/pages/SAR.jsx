@@ -12,7 +12,7 @@ export default function SAR() {
   };
 
   const handleMonthClick = (season, monthEn, e) => {
-    e.stopPropagation();  
+    e.stopPropagation();
     navigate(`/sar/${season}/${monthEn}`);
   };
 
@@ -27,43 +27,43 @@ export default function SAR() {
         onClick={() => handleSeasonClick(season)}
       >
         {/* Фоновое изображение */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.image})` }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
+
         {/* Контент карточки */}
         <div className="relative z-10 p-6 text-white">
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="w-6 h-6" />
             <h3 className="text-2xl font-bold">{data.name}</h3>
           </div>
-          
+
           <p className="text-white/90 leading-relaxed text-sm mb-4">
             {data.description}
           </p>
-          
+
           {/* Статистика сезона */}
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
               <div className="text-sm font-bold">{data.temperature}</div>
-              <div className="text-xs opacity-90">Температура</div>
+              <div className="text-xs opacity-90">Temperature</div>
             </div>
             <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center">
               <div className="text-sm font-bold">{data.precipitation}</div>
-              <div className="text-xs opacity-90">Осадки</div>
+              <div className="text-xs opacity-90">Precipitation</div>
             </div>
             <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm text-center col-span-2">
               <div className="text-sm font-bold">{data.growth}</div>
-              <div className="text-xs opacity-90">Фаза роста</div>
+              <div className="text-xs opacity-90">Growth phase</div>
             </div>
           </div>
 
           {/* Месяцы */}
           <div className="space-y-2">
-            <h4 className="text-sm font-semibold mb-2">Месяцы:</h4>
+            <h4 className="text-sm font-semibold mb-2">Months:</h4>
             {data.months.map((month, index) => (
               <motion.button
                 key={month.en}
@@ -92,15 +92,15 @@ export default function SAR() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4">
-            SAR Данные - Сезонная аналитика
+            SAR Data - Seasonal analytics
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-            Исследуйте сезонные изменения в выращивании легендарного сорта яблок Апорт с помощью SAR технологий
+            Explore seasonal changes in the cultivation of the legendary Aport apple variety using SAR technology.
           </p>
           <div className="bg-white rounded-2xl p-6 shadow-lg inline-block">
             <p className="text-gray-700 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-red-600" />
-              <span>Нажмите на сезон для просмотра общей аналитики или выберите конкретный месяц</span>
+              <span>Click on a season to view general analytics or select a specific month.</span>
             </p>
           </div>
         </motion.div>
@@ -120,36 +120,36 @@ export default function SAR() {
           className="mt-12 bg-white rounded-2xl p-8 shadow-lg"
         >
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-            Сезонные особенности выращивания Апорт
+            Seasonal characteristics of growing Aport
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">🌱</span>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Весна</h3>
-              <p className="text-sm text-gray-600">Цветение, опыление, начало вегетации</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Spring</h3>
+              <p className="text-sm text-gray-600">Flowering, pollination, start of vegetation</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">☀️</span>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Лето</h3>
-              <p className="text-sm text-gray-600">Рост плодов, формирование урожая</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Summer</h3>
+              <p className="text-sm text-gray-600">Fruit growth, crop formation</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">🍎</span>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Осень</h3>
-              <p className="text-sm text-gray-600">Сбор урожая, подготовка к зиме</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Autumn</h3>
+              <p className="text-sm text-gray-600">Harvesting, preparing for winter</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">❄️</span>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Зима</h3>
-              <p className="text-sm text-gray-600">Покой, защита от морозов</p>
+              <h3 className="font-semibold text-gray-800 mb-2">Winter</h3>
+              <p className="text-sm text-gray-600">Peace, protection from frost</p>
             </div>
           </div>
         </motion.div>
