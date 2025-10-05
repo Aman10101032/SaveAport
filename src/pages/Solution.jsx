@@ -129,8 +129,6 @@ export default function SolutionPage() {
           </div>
         </motion.section>
 
-        // В файле src/pages/Solution.jsx замените раздел highlights на:
-
         {/* Highlights section */}
         <section id="highlights" className="mt-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Core program highlights</h2>
