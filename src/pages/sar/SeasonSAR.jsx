@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, BarChart3, Thermometer, Droplets, Sprout, TrendingUp } from "lucide-react";
 import { seasonsData } from "../../data/seasonsData";
+import { nasaData } from "../../data/nasaData";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function SeasonSAR() {
   const { season } = useParams();
@@ -116,6 +118,7 @@ export default function SeasonSAR() {
 
           {/* Правая колонка - графики и аналитика */}
           <div className="space-y-6">
+            {/* График нормализованных показателей */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -123,15 +126,29 @@ export default function SeasonSAR() {
               className="bg-white rounded-2xl shadow-lg p-6"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                <Sprout className="w-5 h-5 text-green-600" />
-                Фазы роста
+                <BarChart3 className="w-5 h-5 text-purple-600" />
+                Нормализованные показатели NASA
               </h3>
-              <div className="text-center py-8">
-                <div className="text-3xl font-bold text-green-600 mb-2">{data.growth}</div>
-                <p className="text-gray-600">Основная фаза роста в этом сезоне</p>
+             <h4>(полученные методом обработки данных SAR)</h4><br></br>
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={nasaData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="year" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="SolarRadiation" stroke="#8884d8" name="Солнечная радиация" />
+                    <Line type="monotone" dataKey="SoilMoisture" stroke="#82ca9d" name="Влажность почвы" />
+                    <Line type="monotone" dataKey="Precipitation" stroke="#ffc658" name="Осадки" />
+                    <Line type="monotone" dataKey="AirHumidity" stroke="#ff7300" name="Влажность воздуха" />
+                    <Line type="monotone" dataKey="Temperature" stroke="#387908" name="Температура" />
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
             </motion.div>
 
+            {/* График благоприятности */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -139,26 +156,28 @@ export default function SeasonSAR() {
               className="bg-white rounded-2xl shadow-lg p-6"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-purple-600" />
-                SAR Показатели за сезон
+                <TrendingUp className="w-5 h-5 text-green-600" />
+                Показатель благоприятности
               </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">78%</div>
-                  <div className="text-sm text-gray-600">Интенсивность</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">0.82</div>
-                  <div className="text-sm text-gray-600">Когерентность</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">1.8мм</div>
-                  <div className="text-sm text-gray-600">Деформация</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">88%</div>
-                  <div className="text-sm text-gray-600">Качество</div>
-                </div>
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={nasaData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="year" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line 
+                      type="monotone" 
+                      dataKey="Favorability" 
+                      stroke="#8884d8" 
+                      name="Благоприятность"
+                      strokeWidth={2}
+                      dot={{ r: 4 }}
+                      activeDot={{ r: 6 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
             </motion.div>
 
@@ -169,7 +188,7 @@ export default function SeasonSAR() {
               className="bg-white rounded-2xl shadow-lg p-6"
             >
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-orange-600" />
+                <Sprout className="w-5 h-5 text-green-600" />
                 Статистика развития
               </h3>
               <div className="space-y-4">

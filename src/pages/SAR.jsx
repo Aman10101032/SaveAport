@@ -12,7 +12,7 @@ export default function SAR() {
   };
 
   const handleMonthClick = (season, monthEn, e) => {
-    e.stopPropagation(); // Останавливаем всплытие события, чтобы не срабатывал handleSeasonClick
+    e.stopPropagation();  
     navigate(`/sar/${season}/${monthEn}`);
   };
 
